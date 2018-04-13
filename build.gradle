@@ -1,0 +1,72 @@
+
+buildscript {
+    ext {
+        springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+    }
+    repositories {
+        mavenCentral()
+        maven { url 'https://repo.spring.io/libs-snapshot' }
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath 'com.palantir.gradle.docker:gradle-docker:0.19.2'
+    }
+}
+
+plugins {
+    id "java"
+    id "eclipse"
+    id 'org.springframework.boot' version '2.0.0.RELEASE'
+    id "io.spring.dependency-management" version "1.0.4.RELEASE"
+    id "com.palantir.docker" version "0.19.2"
+    id "com.palantir.docker-run" version "0.19.2"
+    id 'com.palantir.docker-compose' version "0.19.2"
+}
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+group = 'com.unw'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+def springBootVersion = '2.0.0.RELEASE'
+def springVersion = '5.0.4.RELEASE'
+def springOauthVersion = '2.2.1.RELEASE'
+def springMongoVersion = '2.0.0.M6'
+def springIntegrationVersion = '5.0.3.RELEASE'
+def jaxbVersion= '2.3.0'
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.6'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "http://repo.maven.apache.org/maven2" }
+    maven { url "https://repo.spring.io/libs-release" }
+    maven { url 'https://repo.spring.io/libs-snapshot' }
+}
+
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.unw.Application'
+    }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web-services:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-jersey:${springBootVersion}")    
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile("org.springframework.integration:spring-integration-xml:${springIntegrationVersion}")
+
+}
+
+

@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+  # test system variables
+       - echo $AWS_DEFAULT_REGION 
+       - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
+       # variable defined in job
+       - echo $Var1
+     
+  build:
+    commands:
+     # testing both maven and gradle build
+      - echo Gradle Build
+      - chmod +x gradlew
+      #- ./gradlew --debug --stacktrace build
+      - ./gradlew  build
+      
+      - echo Maven Build 
+      - mvn package
+           
+  post_build:
+    commands:
+
+artifacts:
+     files:  target/cbtest1-0.0.1-SNAPSHOT.jar
