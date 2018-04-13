@@ -1,0 +1,4 @@
+#!/bin/bash
+docker build -f src/main/docker/DockerFile -t ungerw-springboot-docker .
+#docker images
+docker run ungerw-springboot-docker
