@@ -12,10 +12,9 @@ phases:
   build:
     commands:
      # testing both maven and gradle build
-      - echo Gradle Build
-      - chmod +x gradlew
-      #- ./gradlew --debug --stacktrace build
-      - ./gradlew  build
+      #- echo Gradle Build
+      #- chmod +x gradlew
+      #- ./gradlew  build
       
       - echo Maven Build 
       - mvn package
@@ -24,4 +23,4 @@ phases:
     commands:
 
 artifacts:
-     files:  target/ungerw-spring-boot-docker-0.0.1-SNAPSHOT.jar
+     files:  target/spring-boot-docker.jar
