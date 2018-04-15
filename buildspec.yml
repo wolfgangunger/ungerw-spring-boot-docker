@@ -12,25 +12,28 @@ phases:
       - apt-get install -y gradle
   pre_build:
     commands:
-       - echo $AWS_DEFAULT_REGION 
-       # variable defined in job
-       - ARTIFACT=spring-boot
-       - ARTIFACT_TYPE=.jar 
-       - echo $ARTIFACT
-       - echo $ARTIFACT_TYPE
-     
+      - REPOSITORY_URI=016973021151.dkr.ecr.eu-west-3.amazonaws.com/ecs-repository  
+      - ARTIFACT=spring-boot
+      - ARTIFACT_TYPE=.jar 
+      - echo $AWS_DEFAULT_REGION 
+      - echo $ARTIFACT
+      - echo $ARTIFACT_TYPE
+      - echo $REPOSITORY_URI
   build:
     commands:
-      - echo Maven Build 
+      - echo Maven Build ...
       - mvn package
-           
+      - echo Building the Docker image...  
+      - docker build -f src/main/docker/Dockerfile -t $REPOSITORY_URI:$ARTIFACT .
+      
   post_build:
     commands:
-      - echo Building the Docker image...  
-      - REPOSITORY_URI=016973021151.dkr.ecr.eu-west-3.amazonaws.com/ecs-repository  
-      - docker build -f src/main/docker/Dockerfile -t $REPOSITORY_URI:$ARTIFACT .
       #- docker tag $REPOSITORY_URI:$ARTIFACT $REPOSITORY_URI:$$ARTIFACT
       #- $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+       - echo Build completed on `date`
+       - echo Pushing the Docker images...
+       - docker push $REPOSITORY_URI:latest
+       - docker push $REPOSITORY_URI:$IMAGE_TAG
 
 artifacts:
      files:  target/spring-boot.jar
