@@ -39,8 +39,7 @@ phases:
        - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
        - echo Build completed on `date`
        - echo Pushing the Docker images...
-      # - docker push $REPOSITORY_URI:latest
-      # - docker push $REPOSITORY_URI:$IMAGE_TAG
+       - docker push $TAG_NAME
 
 artifacts:
      files:  target/spring-boot.jar
