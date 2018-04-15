@@ -36,7 +36,8 @@ phases:
   post_build:
     commands:
       #- docker tag $REPOSITORY_URI:$ARTIFACT $REPOSITORY_URI:$$ARTIFACT
-       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+       #- $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+       - $(aws ecr get-login --region eu-west-3 --no-include-email) 
        - echo Build completed on `date`
        - echo Pushing the Docker images...
        - docker push $TAG_NAME
