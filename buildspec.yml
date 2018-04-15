@@ -1,8 +1,9 @@
 version: 0.2
 
 phases:
-  init:
+  install:
     commands:
+     # variables
       - REPOSITORY_URI=016973021151.dkr.ecr.eu-west-3.amazonaws.com/ecs-repository  
       - ARTIFACT=spring-boot
       - ARTIFACT_TYPE=.jar 
@@ -12,8 +13,7 @@ phases:
       - echo $ARTIFACT_TYPE
       - echo $REPOSITORY_URI
       - echo $TAG_NAME  
-  install:
-    commands:
+      # installation
       - apt-get update -y
       - apt-get install -y software-properties-common
       - add-apt-repository ppa:openjdk-r/ppa
