@@ -1,6 +1,15 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y software-properties-common
+      - add-apt-repository ppa:openjdk-r/ppa
+      - apt-get update -y
+      - apt-get install -y openjdk-8-jdk
+      - apt-get install -y maven
+      - apt-get install -y gradle
   pre_build:
     commands:
        - echo $AWS_DEFAULT_REGION 
@@ -19,7 +28,7 @@ phases:
     commands:
       - echo Building the Docker image...  
       - REPOSITORY_URI=016973021151.dkr.ecr.eu-west-3.amazonaws.com/ecs-repository  
-      #- docker build -f src/main/docker/Dockerfile -t $REPOSITORY_URI:$ARTIFACT .
+      - docker build -f src/main/docker/Dockerfile -t $REPOSITORY_URI:$ARTIFACT .
       #- docker tag $REPOSITORY_URI:$ARTIFACT $REPOSITORY_URI:$$ARTIFACT
       #- $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
 
