@@ -41,7 +41,8 @@ phases:
        - echo Build completed on `date`
        - echo Pushing the Docker images...
        - docker push $TAG_NAME
-       - aws ecs update-service --cluster UngerwECS --service SpringBootService-Service --task-definition UngerwSpringBootTD
+       - aws ecs list-services --cluster UngerwECS
+       - aws ecs update-service --cluster UngerwECS --service SpringBootService-Service-9ZIIC01SVR0G --task-definition UngerwSpringBootTD
        
 artifacts:
      files:  target/spring-boot.jar
