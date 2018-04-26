@@ -10,13 +10,13 @@ import javax.ws.rs.core.Response;
  * @author UNGERW
  */
 @Component
-@Path("/demo")
+@Path("/")
 public class HelloWorldService {
 
     @GET
     @Path("/hello")
     public Response test() {
-        return Response.status(200).entity("Hello World").build();
+        return Response.status(200).entity("Hello World - Dudes").build();
     }
 
 }
