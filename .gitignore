@@ -16,3 +16,4 @@ log/
 target/
 /.gradle/
 /build/
+/build
