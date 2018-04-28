@@ -31,8 +31,8 @@ phases:
       #- mvn package
       - echo Gradle Build
       #- chmod +x gradlew
-      #- ./gradlew build
-      - gradle build 
+      - ./gradlew build
+      #- gradle build 
       
       - echo Building the Docker image...  
       - docker build -f src/main/docker/Dockerfile -t $TAG_NAME .
