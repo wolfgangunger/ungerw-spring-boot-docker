@@ -21,7 +21,7 @@ phases:
       - apt-get install -y openjdk-8-jdk
       - apt-get install -y maven
       - apt-get install -y gradle
-      - sudo /var/lib/dpkg/info/ca-certificates-java.postinst configure
+
   pre_build:
     commands:
 
@@ -30,8 +30,9 @@ phases:
       #- echo Maven Build ...
       #- mvn package
       - echo Gradle Build
-      - chmod +x gradlew
-      - ./gradlew build
+      #- chmod +x gradlew
+      #- ./gradlew build
+      gradle build 
       
       - echo Building the Docker image...  
       - docker build -f src/main/docker/Dockerfile -t $TAG_NAME .
