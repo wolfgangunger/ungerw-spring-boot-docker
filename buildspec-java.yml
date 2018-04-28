@@ -1,5 +1,5 @@
 version: 0.2
-
+# wolfgang unger 4.2018 - code project with java image - install docker 
 phases:
   install:
     commands:
@@ -21,7 +21,6 @@ phases:
       - apt-get install -y openjdk-8-jdk
       - apt-get install -y maven
       - apt-get install -y gradle
-      - sudo /var/lib/dpkg/info/ca-certificates-java.postinst configure
   pre_build:
     commands:
 
