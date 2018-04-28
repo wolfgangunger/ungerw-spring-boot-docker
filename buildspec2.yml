@@ -31,5 +31,5 @@ phases:
        - aws ecs list-services --cluster UngerwECS
        - aws ecs update-service --cluster UngerwECS --service SpringBootService-Service-9ZIIC01SVR0G --task-definition UngerwSpringBootTD
        
-artifacts:
-     files:  target/spring-boot.jar
+#artifacts:
+#     files:  target/spring-boot.jar
