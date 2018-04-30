@@ -6,6 +6,7 @@ phases:
      # variables
       - echo $CODEBUILD_SRC_DIR
       - ls build/libs
+      - stat src-0.0.1-SNAPSHOT.jar
       - REPOSITORY_URI=016973021151.dkr.ecr.eu-west-3.amazonaws.com/ecs-repository  
       - ARTIFACT=spring-boot
       - ARTIFACT_TYPE=.jar 
