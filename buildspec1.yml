@@ -4,7 +4,9 @@ phases:
   install:
     commands:
      # variables
-
+      - apt-get update -y
+      - apt-get install -y software-properties-common
+      - apt-get install -y gradle
 
   pre_build:
     commands:
@@ -20,7 +22,7 @@ phases:
 
   post_build:
     commands:
-
+       - echo $CODEBUILD_SRC_DIR
        
 artifacts:
      #files:  target/spring-boot.jar
