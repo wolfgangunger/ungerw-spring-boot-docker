@@ -4,6 +4,7 @@ phases:
   install:
     commands:
      # variables
+      - echo ls build/libs
       - REPOSITORY_URI=016973021151.dkr.ecr.eu-west-3.amazonaws.com/ecs-repository  
       - ARTIFACT=spring-boot
       - ARTIFACT_TYPE=.jar 
