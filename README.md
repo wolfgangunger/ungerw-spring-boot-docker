@@ -1,4 +1,4 @@
-http://localhost:8080/mytestapp/demo/hello
+http://localhost:8080/spring-docker/hello
 
 
 

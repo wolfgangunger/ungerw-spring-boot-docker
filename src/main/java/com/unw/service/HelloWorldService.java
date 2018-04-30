@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
  * @author UNGERW
  */
 @Component
-@Path("/")
+@Path("/spring-docker/")
 public class HelloWorldService {
 
     @GET
