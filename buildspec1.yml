@@ -23,7 +23,7 @@ phases:
   post_build:
     commands:
        - echo $CODEBUILD_SRC_DIR
-       - echo ls build/libs
+       - ls build/libs
        
 artifacts:
      #files:  target/spring-boot.jar
