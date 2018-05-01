@@ -29,3 +29,7 @@ Full details are available in an accompanying blog post - check it out here:
 <br /><a href="http://www.adrianmilne.com/deploying-a-spring-boot-microservice-to-docker-aws-elastic-beanstalk/">http://www.adrianmilne.com/deploying-a-spring-boot-microservice-to-docker-aws-elastic-beanstalk/</a>
 
 
+docker build -f src/main/docker/Dockerfile -t $TAG_NAME .
+docker build -f src/main/docker/Dockerfile -t spring-boot .
+  
+  
