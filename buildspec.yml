@@ -30,7 +30,7 @@ phases:
       #- echo Maven Build ...
       #- mvn package
       - echo Gradle Build
-      #- chmod +x gradlew
+      - chmod +x gradlew
       - ./gradlew build
       #- gradle build 
       
