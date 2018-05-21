@@ -16,7 +16,7 @@ public class HelloWorldService {
     @GET
     @Path("/hello")
     public Response test() {
-        return Response.status(200).entity("Index Page + 01.05.2018").build();
+        return Response.status(200).entity("Index Page + 21.05.2018").build();
     }
 
 }
