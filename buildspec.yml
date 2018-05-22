@@ -49,4 +49,6 @@ phases:
        #- aws ecs update-service --cluster UngerwECS --service SpringBootService-Service-XBO2INJQRTEO --task-definition UngerwSpringBootTD
        
 artifacts:
-     files:  target/spring-boot.jar
+     files:
+      - imagedefinitions.json  
+      - target/spring-boot.jar
