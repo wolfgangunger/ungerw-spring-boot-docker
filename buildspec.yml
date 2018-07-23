@@ -4,7 +4,7 @@ phases:
   install:
     commands:
      # variables
-      - REPOSITORY_URI=016973021151.dkr.ecr.eu-west-3.amazonaws.com/ecs-repository  
+      - REPOSITORY_URI=016973021151.dkr.ecr.us-west-1.amazonaws.com/ecs-example-repository
       - ARTIFACT=spring-boot
       - ARTIFACT_TYPE=.jar 
       - TAG_NAME=$REPOSITORY_URI:$ARTIFACT
@@ -41,7 +41,7 @@ phases:
     commands:
       #- docker tag $REPOSITORY_URI:$ARTIFACT $REPOSITORY_URI:$$ARTIFACT
        #- $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-       - $(aws ecr get-login --region eu-west-3 --no-include-email) 
+       - $(aws ecr get-login --region us-west-1 --no-include-email) 
        - echo Build completed on `date`
        - echo Pushing the Docker images...
        - docker push $TAG_NAME

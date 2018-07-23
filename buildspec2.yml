@@ -9,7 +9,7 @@ phases:
       #- stat src-0.0.1-SNAPSHOT.jar
       #- stat build/libs/src-0.0.1-SNAPSHOT.jar
       - ls
-      - REPOSITORY_URI=016973021151.dkr.ecr.eu-west-3.amazonaws.com/ecs-repository  
+      - REPOSITORY_URI=016973021151.dkr.ecr.us-west-1.amazonaws.com/ecs-example-repository
       - ARTIFACT=spring-boot
       - ARTIFACT_TYPE=.jar 
       - TAG_NAME=$REPOSITORY_URI:$ARTIFACT
@@ -33,8 +33,8 @@ phases:
        - echo Build completed on `date`
        - echo Pushing the Docker images...
        - docker push $TAG_NAME
-       - aws ecs list-services --cluster UngerwECS
-       - aws ecs update-service --cluster UngerwECS --service SpringBootService-Service-9ZIIC01SVR0G --task-definition UngerwSpringBootTD
+       #- aws ecs list-services --cluster UngerwECS
+       #- aws ecs update-service --cluster UngerwECS --service UngerwServiceComplete-Service-1I21NO0BAHCJY --task-definition spring-boot
        
 #artifacts:
 #     files:  target/spring-boot.jar
